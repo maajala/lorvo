@@ -7,12 +7,12 @@ section, with a link to the original passage. If the documents don't contain the
 answer, it says so instead of making one up.
 
 > **Status:** step 1 of 5 is complete: ingestion and semantic search (retrieval
-> without an LLM). Answer generation with Claude comes in step 2.
+> without an LLM). LLM answer generation comes in step 2.
 
 | Step | What | Status |
 |---|---|---|
 | 1 | Ingest PDF / Markdown / text → chunk → embed → Postgres + pgvector; search API | ✅ done |
-| 2 | RAG answers with Claude, file + section citations, "I don't know" | ⏳ next |
+| 2 | RAG answers from an LLM, file + section citations, "I don't know" | ⏳ next |
 | 3 | Web UI (React + TypeScript + Vite + Tailwind) | |
 | 4 | Evaluation set + scoring script, tracked over time | |
 | 5 | Docker Compose one-command run, deploy, GIF | |
@@ -187,7 +187,7 @@ see [`.env.example`](.env.example). Secrets are never committed.
 | `EMBEDDING_MODEL` | `BAAI/bge-small-en-v1.5` | |
 | `CHUNK_TARGET_TOKENS` / `CHUNK_OVERLAP_TOKENS` | `350` / `50` | |
 | `ANTHROPIC_API_KEY` | — | used from step 2 |
-| `ANTHROPIC_MODEL` | `claude-sonnet-5-5` | e.g. `claude-opus-5-5` |
+| `ANTHROPIC_MODEL` | see `.env.example` | LLM used for answers (step 2) |
 
 ## Notes
 
