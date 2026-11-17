@@ -13,6 +13,11 @@ dependencies = [
     "sqlalchemy>=2.1.9",
 ]
 
+[project.optional-dependencies]
+local = [
+    "sentence-transformers>=6.3.0",
+]
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
@@ -65,4 +70,5 @@ filterwarnings = [
 ]
 markers = [
     "integration: needs a running Postgres+pgvector (set TEST_DATABASE_URL)",
+    "slow: downloads/runs the real embedding model (needs the local extra)",
 ]
