@@ -57,3 +57,39 @@ def ingest(
     )
     if counts["failed"]:
         raise typer.Exit(code=1)
+
+
+@app.command("search")
+def search_cmd(
+    query: Annotated[str, typer.Argument(help="Natural-language question.")],
+    k: Annotated[int, typer.Option("-k", min=1, max=50, help="Number of results.")] = 5,
+) -> None:
+    """Show the top-k most relevant chunks for a query (retrieval only, no LLM)."""
+    from lorvo.retrieval.search import search
+
+    settings = get_settings()
+    factory = make_session_factory(make_engine(settings.database_url))
+    with factory() as session:
+        hits = search(session, build_embedder(settings), query, k)
+    if not hits:
+        typer.echo("No documents ingested yet. Try: lorvo ingest ../samples")
+        return
+    for i, h in enumerate(hits, 1):
+        where = f"p.{h.page_start}" if h.page_start else f"chars {h.char_start}-{h.char_end}"
+        path = " > ".join(h.heading_path) or "(no heading)"
+        typer.secho(f"\n[{i}] {h.score:.3f}  {h.filename}  ({where})", bold=True)
+        typer.secho(f"    {path}", fg=typer.colors.CYAN)
+        snippet = " ".join(h.text.split())
+        typer.echo(f"    {snippet[:300]}{'…' if len(snippet) > 300 else ''}")
+
+
+@app.command()
+def serve(
+    host: str = "127.0.0.1",
+    port: int = 8000,
+    reload: Annotated[bool, typer.Option(help="Auto-reload on code changes.")] = False,
+) -> None:
+    """Run the HTTP API (docs at /docs)."""
+    import uvicorn
+
+    uvicorn.run("lorvo.main:app", host=host, port=port, reload=reload)

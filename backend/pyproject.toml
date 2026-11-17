@@ -5,13 +5,16 @@ description = "AI assistant that answers questions about your team's documents, 
 requires-python = ">=3.12,<3.13"
 dependencies = [
     "alembic>=1.20.1",
+    "fastapi>=0.163.1",
     "markdown-it-py>=4.3.0",
     "pgvector>=0.5.1",
     "psycopg[binary]>=3.3.9",
     "pydantic-settings>=2.16.3",
     "pymupdf>=2.1",
+    "python-multipart>=0.0.34",
     "sqlalchemy>=2.1.9",
     "typer>=0.29.1",
+    "uvicorn[standard]>=0.54.0",
 ]
 
 [project.optional-dependencies]
@@ -31,6 +34,7 @@ packages = ["src/lorvo"]
 
 [dependency-groups]
 dev = [
+    "httpx>=0.28.1",
     "mypy>=2.4.1",
     "pytest>=9.2.0",
     "ruff>=0.17.5",
