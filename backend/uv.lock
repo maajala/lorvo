@@ -371,6 +371,7 @@ dependencies = [
     { name = "pydantic-settings" },
     { name = "pymupdf" },
     { name = "sqlalchemy" },
+    { name = "typer" },
 ]
 
 [package.optional-dependencies]
@@ -395,6 +396,7 @@ requires-dist = [
     { name = "pymupdf", specifier = ">=2.1" },
     { name = "sentence-transformers", marker = "extra == 'local'", specifier = ">=6.3.0" },
     { name = "sqlalchemy", specifier = ">=2.1.9" },
+    { name = "typer", specifier = ">=0.29.1" },
 ]
 provides-extras = ["local"]
 

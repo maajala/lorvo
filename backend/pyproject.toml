@@ -11,12 +11,16 @@ dependencies = [
     "pydantic-settings>=2.16.3",
     "pymupdf>=2.1",
     "sqlalchemy>=2.1.9",
+    "typer>=0.29.1",
 ]
 
 [project.optional-dependencies]
 local = [
     "sentence-transformers>=6.3.0",
 ]
+
+[project.scripts]
+lorvo = "lorvo.cli:app"
 
 [build-system]
 requires = ["hatchling"]

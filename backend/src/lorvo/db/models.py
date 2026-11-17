@@ -10,7 +10,6 @@ from datetime import datetime
 
 from pgvector.sqlalchemy import Vector
 from sqlalchemy import (
-    ARRAY,
     BigInteger,
     DateTime,
     ForeignKey,
@@ -21,6 +20,7 @@ from sqlalchemy import (
     UniqueConstraint,
     func,
 )
+from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
 # Dimension of BAAI/bge-small-en-v1.5. Changing embedder dimension needs a migration.
