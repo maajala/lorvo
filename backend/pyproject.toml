@@ -9,6 +9,7 @@ dependencies = [
     "pgvector>=0.5.1",
     "psycopg[binary]>=3.3.9",
     "pydantic-settings>=2.16.3",
+    "pymupdf>=2.1",
     "sqlalchemy>=2.1.9",
 ]
 
@@ -51,9 +52,17 @@ mypy_path = "src"
 packages = ["lorvo", "tests"]
 explicit_package_bases = true
 
+[[tool.mypy.overrides]]
+module = ["pymupdf", "pymupdf.*"]
+ignore_missing_imports = true
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-ra --strict-markers"
+filterwarnings = [
+    # Emitted by PyMuPDF's SWIG bindings on import; harmless.
+    "ignore:builtin type (SwigPy|swigvarlink).*:DeprecationWarning",
+]
 markers = [
     "integration: needs a running Postgres+pgvector (set TEST_DATABASE_URL)",
 ]

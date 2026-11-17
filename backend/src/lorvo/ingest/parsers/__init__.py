@@ -4,10 +4,15 @@ from pathlib import PurePath
 
 from lorvo.ingest.parsers.base import ParsedDocument, UnsupportedFormatError
 from lorvo.ingest.parsers.markdown import parse_markdown
+from lorvo.ingest.parsers.pdf import parse_pdf
+from lorvo.ingest.parsers.text import parse_text
 
 _PARSERS = {
     ".md": parse_markdown,
     ".markdown": parse_markdown,
+    ".txt": parse_text,
+    ".text": parse_text,
+    ".pdf": parse_pdf,
 }
 
 SUPPORTED_EXTENSIONS = frozenset(_PARSERS)
