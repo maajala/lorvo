@@ -3,7 +3,9 @@ name = "lorvo"
 version = "0.1.0"
 description = "AI assistant that answers questions about your team's documents, with citations."
 requires-python = ">=3.12,<3.13"
-dependencies = []
+dependencies = [
+    "pydantic-settings>=2.16.3",
+]
 
 [build-system]
 requires = ["hatchling"]
