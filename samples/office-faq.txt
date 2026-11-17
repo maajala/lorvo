@@ -1,0 +1,20 @@
+Fernhill Labs Office FAQ (fictional sample data)
+
+Where is the office? Our only office is at 12 Harbour Street, Unit 4. It is open
+from 8am to 7pm on weekdays. Anyone may work from it; no booking needed for hot
+desks, but meeting rooms must be booked in the Rooms app.
+
+How do I get into the building? Your badge is mailed to you in your first week.
+If you forget it, the front desk can issue a day pass with photo ID.
+
+Is there parking? There are 10 bike spaces in the courtyard and no car parking.
+The nearest public garage offers a 20% discount with your Fernhill badge.
+
+What is the guest Wi-Fi? Connect to "Fernhill-Guest". The password is posted on
+the kitchen noticeboard and changes on the first Monday of each month.
+
+Can I bring my dog? Dogs are welcome on Fridays if they are friendly and
+house-trained. Register your dog with the office manager first.
+
+Who do I contact about the office? Email office@fernhill.example or post in the
+#office Slack channel.
