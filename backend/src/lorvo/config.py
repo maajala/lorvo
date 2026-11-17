@@ -21,7 +21,7 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
-    database_url: str = "postgresql+psycopg://lorvo:lorvo@localhost:5432/lorvo"
+    database_url: str = "postgresql+psycopg://lorvo:lorvo@localhost:5433/lorvo"
 
     embedder: Literal["local", "fake"] = "local"
     embedding_model: str = "BAAI/bge-small-en-v1.5"

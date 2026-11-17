@@ -8,7 +8,7 @@ services:
       POSTGRES_PASSWORD: lorvo
       POSTGRES_DB: lorvo
     ports:
-      - "${POSTGRES_PORT:-5432}:5432"
+      - "${POSTGRES_PORT:-5433}:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
       # Creates the lorvo_test database used by integration tests.
